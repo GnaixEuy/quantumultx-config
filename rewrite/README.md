@@ -6,11 +6,10 @@ Recommended format:
 
 ```text
 [rewrite_local]
-^https?:\/\/example\.com\/api\/ url script-response-body https://raw.githubusercontent.com/<github-user>/<repo-name>/main/script/example.js
+^https?:\/\/example\.com\/api\/ url script-response-body https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/main/script/example.js
 
 [mitm]
 hostname = example.com
 ```
 
 Keep each service in its own snippet so it can be enabled or disabled independently.
-

@@ -1,5 +1,4 @@
 # Reject rules
-# DOMAIN-SUFFIX,example-ads.com,Reject
+# HOST-SUFFIX,example-ads.com,Reject
 
-DOMAIN-SUFFIX,tracking.example.com,Reject
-
+HOST-SUFFIX,tracking.example.com,Reject
