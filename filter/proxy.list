@@ -1,0 +1,5 @@
+# Proxy rules
+# Add domains that should always use the proxy policy.
+
+DOMAIN-SUFFIX,example.com,Proxy
+

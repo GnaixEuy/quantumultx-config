@@ -1,0 +1,9 @@
+# Example Quantumult X rewrite snippet
+# Replace the URL pattern, script URL, and hostname before enabling.
+
+[rewrite_local]
+^https?:\/\/example\.com\/api\/v1\/ url script-response-body https://raw.githubusercontent.com/<github-user>/<repo-name>/main/script/example.js
+
+[mitm]
+hostname = example.com
+

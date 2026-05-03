@@ -1,0 +1,268 @@
+# AI all in one
+# Updated: 2026-05-03
+#
+# Notes:
+# - Policy target: AI
+# - Some broad infrastructure domains are intentionally kept from the source list,
+#   but they may route non-AI traffic too. Review the "Broad dependencies" section
+#   if you prefer tighter routing.
+
+# ========= OpenAI / ChatGPT =========
+HOST-SUFFIX,openai.com,AI
+HOST-SUFFIX,chatgpt.com,AI
+HOST-SUFFIX,oaistatic.com,AI
+HOST-SUFFIX,oaiusercontent.com,AI
+HOST-SUFFIX,openaiapi-site.azureedge.net,AI
+HOST-SUFFIX,cdn.oaistatic.com,AI
+HOST-SUFFIX,files.oaiusercontent.com,AI
+HOST-SUFFIX,auth.openai.com,AI
+HOST-SUFFIX,android.chat.openai.com,AI
+
+# OpenAI login / support / risk control dependencies
+HOST-SUFFIX,auth0.com,AI
+HOST-SUFFIX,auth0.openai.com,AI
+HOST-SUFFIX,statsig.com,AI
+HOST-SUFFIX,statsigapi.net,AI
+HOST-SUFFIX,featuregates.org,AI
+HOST-SUFFIX,featureassets.org,AI
+HOST-SUFFIX,prodregistryv2.org,AI
+HOST-SUFFIX,ct.sendgrid.net,AI
+HOST-SUFFIX,intercom.io,AI
+HOST-SUFFIX,intercomcdn.com,AI
+
+# ========= Anthropic / Claude =========
+HOST-SUFFIX,anthropic.com,AI
+HOST-SUFFIX,claude.ai,AI
+HOST-SUFFIX,claude.com,AI
+HOST-SUFFIX,claudeusercontent.com,AI
+
+# ========= xAI / Grok =========
+HOST-SUFFIX,x.ai,AI
+HOST-SUFFIX,api.x.ai,AI
+HOST-SUFFIX,grok.com,AI
+HOST-SUFFIX,grok.x.ai,AI
+HOST-SUFFIX,ai.com,AI
+
+# Grok dependencies in X
+HOST-SUFFIX,x.com,AI
+HOST-SUFFIX,twitter.com,AI
+HOST-SUFFIX,twimg.com,AI
+HOST-SUFFIX,t.co,AI
+
+# ========= Google AI / Gemini =========
+HOST-SUFFIX,gemini.google.com,AI
+HOST-SUFFIX,bard.google.com,AI
+HOST-SUFFIX,ai.google.dev,AI
+HOST-SUFFIX,aistudio.google.com,AI
+HOST-SUFFIX,makersuite.google.com,AI
+HOST-SUFFIX,notebooklm.google.com,AI
+HOST-SUFFIX,jules.google.com,AI
+HOST-SUFFIX,deepmind.google,AI
+HOST-SUFFIX,deepmind.com,AI
+HOST-SUFFIX,labs.google,AI
+HOST-SUFFIX,stitch.withgoogle.com,AI
+HOST-SUFFIX,aitestkitchen.withgoogle.com,AI
+
+# Gemini API / Vertex AI
+HOST-SUFFIX,generativelanguage.googleapis.com,AI
+HOST-SUFFIX,aiplatform.googleapis.com,AI
+HOST-SUFFIX,googleapis.com,AI
+
+# Google AI internal calls
+HOST-SUFFIX,alkalimakersuite-pa.clients6.google.com,AI
+HOST-SUFFIX,waa-pa.clients6.google.com,AI
+HOST-SUFFIX,proactivebackend-pa.googleapis.com,AI
+
+# Google auth/static dependencies for Gemini web flows
+HOST-SUFFIX,accounts.google.com,AI
+HOST-SUFFIX,apis.google.com,AI
+HOST-SUFFIX,gstatic.com,AI
+HOST-SUFFIX,googleusercontent.com,AI
+
+# ========= Microsoft / Copilot =========
+HOST-SUFFIX,copilot.microsoft.com,AI
+HOST-SUFFIX,copilot.cloud.microsoft,AI
+HOST-SUFFIX,copilotstudio.microsoft.com,AI
+HOST-SUFFIX,bing.com,AI
+HOST-SUFFIX,bingapis.com,AI
+HOST-SUFFIX,edgeservices.bing.com,AI
+HOST-SUFFIX,sydney.bing.com,AI
+
+# Azure OpenAI / Foundry
+HOST-SUFFIX,openai.azure.com,AI
+HOST-SUFFIX,azure.com,AI
+HOST-SUFFIX,azureedge.net,AI
+HOST-SUFFIX,azurefd.net,AI
+
+# ========= GitHub Copilot =========
+HOST-SUFFIX,githubcopilot.com,AI
+HOST-SUFFIX,individual.githubcopilot.com,AI
+HOST-SUFFIX,business.githubcopilot.com,AI
+HOST-SUFFIX,enterprise.githubcopilot.com,AI
+HOST-SUFFIX,copilot-proxy.githubusercontent.com,AI
+HOST-SUFFIX,copilot-telemetry.githubusercontent.com,AI
+HOST-SUFFIX,origin-tracker.githubusercontent.com,AI
+HOST-SUFFIX,default.exp-tas.com,AI
+HOST-SUFFIX,collector.github.com,AI
+HOST-SUFFIX,copilot-reports.github.com,AI
+
+# ========= Perplexity =========
+HOST-SUFFIX,perplexity.ai,AI
+HOST-SUFFIX,pplx.ai,AI
+
+# ========= Poe =========
+HOST-SUFFIX,poe.com,AI
+
+# ========= Mistral =========
+HOST-SUFFIX,mistral.ai,AI
+HOST-SUFFIX,chat.mistral.ai,AI
+HOST-SUFFIX,codestral.mistral.ai,AI
+
+# ========= Meta AI =========
+HOST-SUFFIX,meta.ai,AI
+HOST-SUFFIX,llama.meta.com,AI
+
+# ========= Coding AI =========
+HOST-SUFFIX,cursor.sh,AI
+HOST-SUFFIX,cursor.com,AI
+HOST-SUFFIX,cursor-cdn.com,AI
+HOST-SUFFIX,cursorapi.com,AI
+HOST-SUFFIX,anysphere.co,AI
+HOST-SUFFIX,codeium.com,AI
+HOST-SUFFIX,codeiumdata.com,AI
+HOST-SUFFIX,windsurf.com,AI
+HOST-SUFFIX,tabnine.com,AI
+HOST-SUFFIX,replit.com,AI
+HOST-SUFFIX,sourcegraph.com,AI
+HOST-SUFFIX,vercel.com,AI
+HOST-SUFFIX,v0.dev,AI
+HOST-SUFFIX,bolt.new,AI
+HOST-SUFFIX,lovable.dev,AI
+HOST-SUFFIX,same.new,AI
+HOST-SUFFIX,devin.ai,AI
+HOST-SUFFIX,cognition.ai,AI
+HOST-SUFFIX,supermaven.com,AI
+HOST-SUFFIX,augmentcode.com,AI
+HOST-SUFFIX,augment.codes,AI
+HOST-SUFFIX,trae.ai,AI
+
+# ========= AI API / Inference =========
+HOST-SUFFIX,groq.com,AI
+HOST-SUFFIX,together.ai,AI
+HOST-SUFFIX,fireworks.ai,AI
+HOST-SUFFIX,replicate.com,AI
+HOST-SUFFIX,replicate.delivery,AI
+HOST-SUFFIX,deepinfra.com,AI
+HOST-SUFFIX,openrouter.ai,AI
+HOST-SUFFIX,modal.com,AI
+HOST-SUFFIX,runpod.io,AI
+HOST-SUFFIX,cohere.ai,AI
+HOST-SUFFIX,cerebras.ai,AI
+HOST-SUFFIX,voyageai.com,AI
+HOST-SUFFIX,jina.ai,AI
+HOST-SUFFIX,deepseek.com,AI
+HOST-SUFFIX,siliconflow.cn,AI
+HOST-SUFFIX,novita.ai,AI
+HOST-SUFFIX,baseten.co,AI
+HOST-SUFFIX,fal.ai,AI
+HOST-SUFFIX,fal.media,AI
+HOST-SUFFIX,litellm.ai,AI
+HOST-SUFFIX,openpipe.ai,AI
+HOST-SUFFIX,ollama.com,AI
+HOST-SUFFIX,nebius.ai,AI
+HOST-SUFFIX,bedrock.amazonaws.com,AI
+
+# ========= Hugging Face =========
+HOST-SUFFIX,huggingface.co,AI
+HOST-SUFFIX,hf.co,AI
+
+# ========= China / Asia AI =========
+HOST-SUFFIX,kimi.com,AI
+HOST-SUFFIX,moonshot.ai,AI
+HOST-SUFFIX,moonshot.cn,AI
+HOST-SUFFIX,qwen.ai,AI
+HOST-SUFFIX,tongyi.aliyun.com,AI
+HOST-SUFFIX,dashscope.aliyuncs.com,AI
+HOST-SUFFIX,z.ai,AI
+HOST-SUFFIX,zhipuai.cn,AI
+HOST-SUFFIX,bigmodel.cn,AI
+HOST-SUFFIX,doubao.com,AI
+HOST-SUFFIX,volcengine.com,AI
+HOST-SUFFIX,baichuan-ai.com,AI
+HOST-SUFFIX,minimaxi.com,AI
+HOST-SUFFIX,stepfun.com,AI
+HOST-SUFFIX,01.ai,AI
+HOST-SUFFIX,wenxin.baidu.com,AI
+HOST-SUFFIX,yiyan.baidu.com,AI
+HOST-SUFFIX,ernie.baidu.com,AI
+HOST-SUFFIX,qianfan.cloud.baidu.com,AI
+
+# ========= Image / Video / Audio AI =========
+HOST-SUFFIX,midjourney.com,AI
+HOST-SUFFIX,stability.ai,AI
+HOST-SUFFIX,runwayml.com,AI
+HOST-SUFFIX,pika.art,AI
+HOST-SUFFIX,leonardo.ai,AI
+HOST-SUFFIX,ideogram.ai,AI
+HOST-SUFFIX,luma.ai,AI
+HOST-SUFFIX,lumalabs.ai,AI
+HOST-SUFFIX,heygen.com,AI
+HOST-SUFFIX,synthesia.io,AI
+HOST-SUFFIX,elevenlabs.io,AI
+HOST-SUFFIX,suno.com,AI
+HOST-SUFFIX,udio.com,AI
+HOST-SUFFIX,sora.com,AI
+HOST-SUFFIX,krea.ai,AI
+HOST-SUFFIX,clipdrop.co,AI
+HOST-SUFFIX,dreamstudio.ai,AI
+HOST-SUFFIX,magnific.ai,AI
+HOST-SUFFIX,klingai.com,AI
+HOST-SUFFIX,hailuoai.video,AI
+HOST-SUFFIX,kaiber.ai,AI
+
+# ========= AI Search =========
+HOST-SUFFIX,you.com,AI
+HOST-SUFFIX,phind.com,AI
+HOST-SUFFIX,komo.ai,AI
+HOST-SUFFIX,genspark.ai,AI
+
+# ========= Agent / Workflow =========
+HOST-SUFFIX,langchain.com,AI
+HOST-SUFFIX,smith.langchain.com,AI
+HOST-SUFFIX,langgraph.com,AI
+HOST-SUFFIX,llamaindex.ai,AI
+HOST-SUFFIX,dify.ai,AI
+HOST-SUFFIX,n8n.io,AI
+HOST-SUFFIX,flowiseai.com,AI
+HOST-SUFFIX,manus.im,AI
+HOST-SUFFIX,crewai.com,AI
+HOST-SUFFIX,composio.dev,AI
+HOST-SUFFIX,browserbase.com,AI
+
+# ========= Broad dependencies =========
+# These are broad and may affect non-AI traffic, but are kept for full-coverage mode.
+HOST-SUFFIX,challenges.cloudflare.com,AI
+HOST-SUFFIX,cloudflare.com,AI
+HOST-SUFFIX,cloudflareinsights.com,AI
+HOST-SUFFIX,stripe.com,AI
+HOST-SUFFIX,js.stripe.com,AI
+HOST-SUFFIX,sentry.io,AI
+HOST-SUFFIX,segment.io,AI
+HOST-SUFFIX,amplitude.com,AI
+
+# ========= Keyword fallback =========
+HOST-KEYWORD,openai,AI
+HOST-KEYWORD,chatgpt,AI
+HOST-KEYWORD,claude,AI
+HOST-KEYWORD,anthropic,AI
+HOST-KEYWORD,gemini,AI
+HOST-KEYWORD,grok,AI
+HOST-KEYWORD,perplexity,AI
+HOST-KEYWORD,midjourney,AI
+HOST-KEYWORD,huggingface,AI
+HOST-KEYWORD,stable-diffusion,AI
+HOST-KEYWORD,copilot,AI
+HOST-KEYWORD,deepseek,AI
+HOST-KEYWORD,qwen,AI
+HOST-KEYWORD,doubao,AI
+HOST-KEYWORD,kimi,AI
