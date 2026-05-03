@@ -17,13 +17,13 @@ This repository separates configuration by purpose:
 Import the main profile in Quantumult X after replacing the placeholder GitHub raw URLs:
 
 ```text
-https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/main/config/quantumultx.conf
+https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/refs/heads/main/config/quantumultx.conf
 ```
 
 For single modules, use the raw URL of the corresponding file, for example:
 
 ```text
-https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/main/rewrite/example.snippet
+https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/refs/heads/main/rewrite/example.snippet
 ```
 
 ## Safety

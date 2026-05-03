@@ -6,7 +6,7 @@ Recommended format:
 
 ```text
 [rewrite_local]
-^https?:\/\/example\.com\/api\/ url script-response-body https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/main/script/example.js
+^https?:\/\/example\.com\/api\/ url script-response-body https://raw.githubusercontent.com/GnaixEuy/quantumultx-config/refs/heads/main/script/example.js
 
 [mitm]
 hostname = example.com
