@@ -1,5 +1,5 @@
 # AI all in one
-# Updated: 2026-05-03
+# Updated: 2026-05-12
 #
 # Notes:
 # - Policy target: AI
@@ -39,6 +39,9 @@ HOST-SUFFIX,claudeusercontent.com,AI
 # ========= xAI / Grok =========
 HOST-SUFFIX,x.ai,AI
 HOST-SUFFIX,api.x.ai,AI
+HOST-SUFFIX,accounts.x.ai,AI
+HOST-SUFFIX,console.x.ai,AI
+HOST-SUFFIX,docs.x.ai,AI
 HOST-SUFFIX,grok.com,AI
 HOST-SUFFIX,grok.x.ai,AI
 HOST-SUFFIX,ai.com,AI
@@ -145,6 +148,14 @@ HOST-SUFFIX,supermaven.com,AI
 HOST-SUFFIX,augmentcode.com,AI
 HOST-SUFFIX,augment.codes,AI
 HOST-SUFFIX,trae.ai,AI
+
+# Kiro
+HOST-SUFFIX,kiro.dev,AI
+HOST-SUFFIX,q.us-east-1.amazonaws.com,AI
+HOST-SUFFIX,q.eu-central-1.amazonaws.com,AI
+HOST-SUFFIX,q-fips.us-gov-east-1.amazonaws.com,AI
+HOST-SUFFIX,q-fips.us-gov-west-1.amazonaws.com,AI
+HOST-SUFFIX,cognito-identity.us-east-1.amazonaws.com,AI
 
 # ========= AI API / Inference =========
 HOST-SUFFIX,groq.com,AI
