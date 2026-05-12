@@ -171,8 +171,6 @@ HOST-SUFFIX,cohere.ai,AI
 HOST-SUFFIX,cerebras.ai,AI
 HOST-SUFFIX,voyageai.com,AI
 HOST-SUFFIX,jina.ai,AI
-HOST-SUFFIX,deepseek.com,AI
-HOST-SUFFIX,siliconflow.cn,AI
 HOST-SUFFIX,novita.ai,AI
 HOST-SUFFIX,baseten.co,AI
 HOST-SUFFIX,fal.ai,AI
@@ -186,27 +184,6 @@ HOST-SUFFIX,bedrock.amazonaws.com,AI
 # ========= Hugging Face =========
 HOST-SUFFIX,huggingface.co,AI
 HOST-SUFFIX,hf.co,AI
-
-# ========= China / Asia AI =========
-HOST-SUFFIX,kimi.com,AI
-HOST-SUFFIX,moonshot.ai,AI
-HOST-SUFFIX,moonshot.cn,AI
-HOST-SUFFIX,qwen.ai,AI
-HOST-SUFFIX,tongyi.aliyun.com,AI
-HOST-SUFFIX,dashscope.aliyuncs.com,AI
-HOST-SUFFIX,z.ai,AI
-HOST-SUFFIX,zhipuai.cn,AI
-HOST-SUFFIX,bigmodel.cn,AI
-HOST-SUFFIX,doubao.com,AI
-HOST-SUFFIX,volcengine.com,AI
-HOST-SUFFIX,baichuan-ai.com,AI
-HOST-SUFFIX,minimaxi.com,AI
-HOST-SUFFIX,stepfun.com,AI
-HOST-SUFFIX,01.ai,AI
-HOST-SUFFIX,wenxin.baidu.com,AI
-HOST-SUFFIX,yiyan.baidu.com,AI
-HOST-SUFFIX,ernie.baidu.com,AI
-HOST-SUFFIX,qianfan.cloud.baidu.com,AI
 
 # ========= Image / Video / Audio AI =========
 HOST-SUFFIX,midjourney.com,AI
@@ -273,7 +250,3 @@ HOST-KEYWORD,midjourney,AI
 HOST-KEYWORD,huggingface,AI
 HOST-KEYWORD,stable-diffusion,AI
 HOST-KEYWORD,copilot,AI
-HOST-KEYWORD,deepseek,AI
-HOST-KEYWORD,qwen,AI
-HOST-KEYWORD,doubao,AI
-HOST-KEYWORD,kimi,AI
