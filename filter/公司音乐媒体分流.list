@@ -1,0 +1,82 @@
+# 公司音乐媒体分流
+# Updated: 2026-05-15
+#
+# Usage:
+# - Designed for company networks that block music/media services.
+# - Default policy target: Proxy
+# - Keep this list small to avoid routing unrelated ByteDance / Tencent / NetEase traffic.
+
+# ========= 汽水音乐 / Douyin Music =========
+HOST-SUFFIX,qishui.com,Proxy
+HOST-SUFFIX,music.douyin.com,Proxy
+
+# ========= 网易云音乐 / NetEase Cloud Music =========
+HOST,netease.ugcvideoss.ourdvs.com,Proxy
+HOST-SUFFIX,163yun.com,Proxy
+HOST-SUFFIX,api.iplay.163.com,Proxy
+HOST-SUFFIX,hz.netease.com,Proxy
+HOST-SUFFIX,mam.netease.com,Proxy
+HOST-SUFFIX,music.126.com,Proxy
+HOST-SUFFIX,music.126.net,Proxy
+HOST-SUFFIX,music.163.com,Proxy
+HOST-SUFFIX,music.163.com.163jiasu.com,Proxy
+HOST-SUFFIX,yun-app.net,Proxy
+USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*,Proxy
+USER-AGENT,NeteaseMusic*,Proxy
+IP-CIDR,101.71.154.241/32,Proxy,no-resolve
+IP-CIDR,103.126.92.132/31,Proxy,no-resolve
+IP-CIDR,112.13.119.17/32,Proxy,no-resolve
+IP-CIDR,112.13.119.18/32,Proxy,no-resolve
+IP-CIDR,112.13.122.1/32,Proxy,no-resolve
+IP-CIDR,112.13.122.4/32,Proxy,no-resolve
+IP-CIDR,115.236.112.0/20,Proxy,no-resolve
+IP-CIDR,118.24.63.156/32,Proxy,no-resolve
+IP-CIDR,182.92.170.253/32,Proxy,no-resolve
+IP-CIDR,193.112.159.225/32,Proxy,no-resolve
+IP-CIDR,223.252.192.0/19,Proxy,no-resolve
+IP-CIDR,39.105.175.128/32,Proxy,no-resolve
+IP-CIDR,39.105.63.80/32,Proxy,no-resolve
+IP-CIDR,45.254.48.1/32,Proxy,no-resolve
+IP-CIDR,47.100.127.239/32,Proxy,no-resolve
+IP-CIDR,59.111.128.0/17,Proxy,no-resolve
+IP-CIDR,59.111.19.33/32,Proxy,no-resolve
+IP-CIDR,59.111.21.14/31,Proxy,no-resolve
+
+# ========= QQ 音乐 / QQ Music =========
+HOST-SUFFIX,qqmusic.com,Proxy
+HOST-SUFFIX,qqmusic.qq.com,Proxy
+HOST-SUFFIX,y.qq.com,Proxy
+HOST-SUFFIX,music.qq.com,Proxy
+HOST-SUFFIX,musicpay.qq.com,Proxy
+HOST-SUFFIX,tme.qq.com,Proxy
+HOST-SUFFIX,music.tc.qq.com,Proxy
+HOST-SUFFIX,stream.qqmusic.qq.com,Proxy
+
+# ========= 酷狗音乐 / KuGou =========
+HOST-SUFFIX,kugou.com,Proxy
+HOST-SUFFIX,kugou.net,Proxy
+HOST-SUFFIX,kgimg.com,Proxy
+
+# ========= 酷我音乐 / Kuwo =========
+HOST-SUFFIX,kuwo.cn,Proxy
+HOST-SUFFIX,kuwo.com,Proxy
+
+# ========= 喜马拉雅 / Ximalaya =========
+HOST-SUFFIX,9nali.com,Proxy
+HOST-SUFFIX,conchdate.com,Proxy
+HOST-SUFFIX,himalaya.com,Proxy
+HOST-SUFFIX,himalaya.cool,Proxy
+HOST-SUFFIX,qingxuetang.com,Proxy
+HOST-SUFFIX,soundconch.com,Proxy
+HOST-SUFFIX,tableauxmly.com,Proxy
+HOST-SUFFIX,xima.tv,Proxy
+HOST-SUFFIX,ximalaya.com,Proxy
+HOST-SUFFIX,ximalaya.fm,Proxy
+HOST-SUFFIX,ximalaya.tv,Proxy
+HOST-SUFFIX,ximalayadata.com,Proxy
+HOST-SUFFIX,xmcdn.com,Proxy
+HOST-SUFFIX,zhishif.com,Proxy
+HOST-SUFFIX,zhishinn.com,Proxy
+HOST-SUFFIX,zhishiu.com,Proxy
+HOST-SUFFIX,zhishiv.com,Proxy
+USER-AGENT,Himalaya*,Proxy
