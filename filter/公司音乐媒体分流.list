@@ -7,8 +7,24 @@
 # - Keep this list small to avoid routing unrelated ByteDance / Tencent / NetEase traffic.
 
 # ========= 汽水音乐 / Douyin Music =========
+HOST-KEYWORD,qishui,Proxy
 HOST-SUFFIX,qishui.com,Proxy
 HOST-SUFFIX,music.douyin.com,Proxy
+HOST-SUFFIX,qishui.douyin.com,Proxy
+
+# 汽水客户端依赖的字节系 API / 播放 / 图片域名。
+# Keep these scoped to app/media hosts instead of all ByteDance domains.
+HOST-SUFFIX,douyinvod.com,Proxy
+HOST-SUFFIX,douyinpic.com,Proxy
+HOST,api3-normal-c-lq.amemv.com,Proxy
+HOST,api5-core-c-lq.amemv.com,Proxy
+HOST,api5-normal-lf.amemv.com,Proxy
+HOST,api5-normal-lq.amemv.com,Proxy
+HOST,frontier.snssdk.com,Proxy
+HOST,i.snssdk.com,Proxy
+HOST,is.snssdk.com,Proxy
+HOST,log.snssdk.com,Proxy
+HOST,mon.snssdk.com,Proxy
 
 # ========= 网易云音乐 / NetEase Cloud Music =========
 HOST,netease.ugcvideoss.ourdvs.com,Proxy
