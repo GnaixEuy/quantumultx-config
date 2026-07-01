@@ -1,5 +1,5 @@
 # AI all in one
-# Updated: 2026-05-12
+# Updated: 2026-07-01
 #
 # Notes:
 # - Policy target: AI
@@ -65,6 +65,7 @@ HOST-SUFFIX,deepmind.com,AI
 HOST-SUFFIX,labs.google,AI
 HOST-SUFFIX,stitch.withgoogle.com,AI
 HOST-SUFFIX,aitestkitchen.withgoogle.com,AI
+HOST-SUFFIX,antigravity.google,AI
 
 # Gemini API / Vertex AI
 HOST-SUFFIX,generativelanguage.googleapis.com,AI
@@ -244,6 +245,7 @@ HOST-KEYWORD,chatgpt,AI
 HOST-KEYWORD,claude,AI
 HOST-KEYWORD,anthropic,AI
 HOST-KEYWORD,gemini,AI
+HOST-KEYWORD,antigravity,AI
 HOST-KEYWORD,grok,AI
 HOST-KEYWORD,perplexity,AI
 HOST-KEYWORD,midjourney,AI
