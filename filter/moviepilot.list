@@ -1,33 +1,75 @@
-# MoviePilot metadata and control-plane acceleration
+# MoviePilot acceleration (metadata / control-plane / API only)
 # Updated: 2026-08-04
 #
-# Intentionally excluded: PT/tracker sites, torrent peers, download clients,
-# cloud drives, media streams, and broad CDN domains.
+# Consumers:
+#   1. Quantumult X remote filter (force-policy=Proxy)
+#   2. Server-side sing-box (ai2americaproxy) MOVIEPILOT_RULE_URL
+#
+# Principle: accelerate only small, latency-sensitive, blocked-in-CN traffic.
+# Anything whose size is unbounded — BitTorrent, cloud drives, media streams,
+# release assets, container images, OS packages — must NOT be listed here.
+# See moviepilot-direct.list for the explicit never-proxy set.
 
-# MoviePilot services
+# ========= MoviePilot official services =========
+# API, plugin market index, site metadata.
 HOST-SUFFIX,movie-pilot.org,Proxy
 
-# TMDB metadata and artwork
-HOST,api.themoviedb.org,Proxy
-HOST,api.tmdb.org,Proxy
-HOST,image.tmdb.org,Proxy
-HOST,images.tmdb.org,Proxy
+# ========= TMDB (primary metadata source) =========
+# Covers api.themoviedb.org, www.themoviedb.org, image.tmdb.org.
+# Note: image.tmdb.org carries poster/backdrop artwork and is the largest
+# legitimate consumer in this file; a full library scrape can reach a few GB.
+HOST-SUFFIX,themoviedb.org,Proxy
+HOST-SUFFIX,tmdb.org,Proxy
 
-# Fanart and TVDB metadata/artwork
-HOST,webservice.fanart.tv,Proxy
-HOST,assets.fanart.tv,Proxy
+# ========= TheTVDB =========
+# Covers api4.thetvdb.com and artworks.thetvdb.com.
 HOST-SUFFIX,thetvdb.com,Proxy
 
-# AniList / Bangumi metadata
-HOST,graphql.anilist.co,Proxy
-HOST-SUFFIX,trace.moe,Proxy
-HOST,api.bgm.tv,Proxy
-HOST,lain.bgm.tv,Proxy
+# ========= Fanart artwork =========
+HOST-SUFFIX,fanart.tv,Proxy
 
-# MoviePilot code, plugins, and resource manifests
+# ========= Anime metadata =========
+HOST-SUFFIX,anilist.co,Proxy
+HOST-SUFFIX,trace.moe,Proxy
+HOST-SUFFIX,bgm.tv,Proxy
+HOST-SUFFIX,bangumi.tv,Proxy
+
+# ========= Watchlist / subtitles =========
+HOST-SUFFIX,trakt.tv,Proxy
+HOST-SUFFIX,opensubtitles.com,Proxy
+HOST-SUFFIX,opensubtitles.org,Proxy
+
+# ========= GitHub: plugin market, version checks, source =========
+# The suffix covers api.github.com and codeload.github.com.
+# raw.githubusercontent.com is the actual plugin file-fetch path.
+# Release-asset CDNs are deliberately excluded — see moviepilot-direct.list.
 HOST-SUFFIX,github.com,Proxy
 HOST,raw.githubusercontent.com,Proxy
-HOST,codeload.github.com,Proxy
+HOST,gist.githubusercontent.com,Proxy
 
-# Optional MoviePilot Telegram notifications
-HOST,api.telegram.org,Proxy
+# ========= Notification channels =========
+# The suffix covers api.telegram.org, including bot file uploads.
+HOST-SUFFIX,telegram.org,Proxy
+HOST-SUFFIX,t.me,Proxy
+HOST-SUFFIX,slack.com,Proxy
+HOST-SUFFIX,day.app,Proxy
+
+# ========= Media server online endpoints (auth only, never streams) =========
+# plex.tv is token/claim validation. Local streaming uses *.plex.direct,
+# which is forced direct in moviepilot-direct.list.
+HOST-SUFFIX,plex.tv,Proxy
+# Emby Premiere key validation.
+HOST-SUFFIX,mb3admin.com,Proxy
+
+# ========= Plugin Python dependencies =========
+# Wheels are a few MB each and fetched rarely. Drop these two lines if you
+# point MoviePilot's PIP_PROXY at a domestic mirror instead.
+HOST-SUFFIX,pypi.org,Proxy
+HOST,files.pythonhosted.org,Proxy
+
+# ========= Your own overseas PT sites (opt in per site) =========
+# Site browsing and .torrent fetches are kilobyte-scale, so proxying a site
+# domain is cheap. The actual BitTorrent transfer is peer traffic handled by
+# qBittorrent/Transmission and never passes through this HTTP proxy.
+# Add only the sites you actually use, one suffix per line, e.g.:
+# HOST-SUFFIX,example-tracker.org,Proxy

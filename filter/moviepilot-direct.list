@@ -1,0 +1,120 @@
+# MoviePilot never-proxy set (bandwidth guard)
+# Updated: 2026-08-04
+#
+# Consumer: server-side sing-box (ai2americaproxy) NOPROXY_RULE_URL.
+# Evaluated BEFORE every acceleration list, so a match here always wins.
+#
+# Purpose: the NAS sits behind this proxy, and the upstream US node is metered.
+# This file is the hard stop for traffic whose size is unbounded — downloads,
+# cloud drives, media streams, container images, OS packages. Anything that
+# should never be able to burn upstream quota belongs here, not in a comment.
+#
+# In the Quantumult X profile this list is registered with enabled=false: the
+# phone profile already ends in FINAL,Proxy plus GEOIP,CN,Direct, and forcing
+# these domains direct there would only break them on mobile networks.
+#
+# Adding to this file is always safe. The server config ends in final=direct,
+# so a domain listed here falls back to the server's own direct egress.
+
+# ========= BitTorrent trackers =========
+# Belt and braces only: tracker announces are issued by qBittorrent/Transmission,
+# which do not use this proxy, and each announce is kilobyte-scale anyway.
+# Deliberately NOT a HOST-KEYWORD,tracker rule — that also swallows
+# origin-tracker.githubusercontent.com, which the AI list needs accelerated.
+HOST-SUFFIX,opentrackr.org,Direct
+HOST-SUFFIX,openbittorrent.com,Direct
+HOST-SUFFIX,torrent.eu.org,Direct
+HOST-SUFFIX,demonii.com,Direct
+HOST-SUFFIX,leechers-paradise.org,Direct
+
+# ========= Download clients =========
+HOST-SUFFIX,qbittorrent.org,Direct
+HOST-SUFFIX,transmissionbt.com,Direct
+HOST-SUFFIX,xunlei.com,Direct
+HOST-SUFFIX,thunderurl.com,Direct
+
+# ========= GitHub release-asset CDNs =========
+# MoviePilot's plugin market pulls individual files from raw.githubusercontent.com
+# and never needs release assets, while a single asset can be hundreds of MB.
+# If some plugin genuinely needs one, move that host into moviepilot.list.
+HOST,objects.githubusercontent.com,Direct
+HOST,release-assets.githubusercontent.com,Direct
+HOST,github-releases.githubusercontent.com,Direct
+
+# ========= Container registries =========
+# Image pulls are the single largest traffic source on a NAS. Use a domestic
+# registry mirror on the NAS instead of routing these through the proxy.
+HOST-SUFFIX,docker.io,Direct
+HOST-SUFFIX,docker.com,Direct
+HOST,production.cloudflare.docker.com,Direct
+HOST-SUFFIX,ghcr.io,Direct
+HOST-SUFFIX,gcr.io,Direct
+HOST-SUFFIX,quay.io,Direct
+
+# ========= Cloud drives used by MoviePilot plugins =========
+HOST-SUFFIX,aliyundrive.com,Direct
+HOST-SUFFIX,alipan.com,Direct
+HOST-SUFFIX,aliyuncs.com,Direct
+HOST-SUFFIX,115.com,Direct
+HOST-SUFFIX,115cdn.com,Direct
+HOST-SUFFIX,anxia.com,Direct
+HOST-SUFFIX,quark.cn,Direct
+HOST-SUFFIX,baidupcs.com,Direct
+HOST-SUFFIX,pcs.baidu.com,Direct
+HOST-SUFFIX,pikpak.com,Direct
+HOST-SUFFIX,mypikpak.com,Direct
+
+# ========= Overseas cloud drives =========
+HOST-SUFFIX,dropbox.com,Direct
+HOST-SUFFIX,dropboxusercontent.com,Direct
+HOST-SUFFIX,onedrive.com,Direct
+HOST-SUFFIX,1drv.com,Direct
+HOST-SUFFIX,sharepoint.com,Direct
+HOST-SUFFIX,teracloud.jp,Direct
+
+# ========= Local and self-hosted media servers =========
+# *.plex.direct resolves to a LAN address; routing it out would break playback.
+HOST-SUFFIX,plex.direct,Direct
+HOST-SUFFIX,emby.media,Direct
+HOST-SUFFIX,jellyfin.org,Direct
+
+# ========= Domestic sites — never need a US exit =========
+HOST-SUFFIX,cn,Direct
+HOST-SUFFIX,douban.com,Direct
+HOST-SUFFIX,doubanio.com,Direct
+HOST-SUFFIX,bilibili.com,Direct
+HOST-SUFFIX,hdslb.com,Direct
+HOST-SUFFIX,iqiyi.com,Direct
+HOST-SUFFIX,youku.com,Direct
+HOST-SUFFIX,mgtv.com,Direct
+HOST-SUFFIX,qq.com,Direct
+HOST-SUFFIX,myqcloud.com,Direct
+HOST-SUFFIX,aliyun.com,Direct
+HOST-SUFFIX,tencentcloud.com,Direct
+
+# ========= OS packages, NAS firmware, package registries =========
+HOST-SUFFIX,debian.org,Direct
+HOST-SUFFIX,ubuntu.com,Direct
+HOST-SUFFIX,alpinelinux.org,Direct
+HOST-SUFFIX,npmjs.org,Direct
+HOST-SUFFIX,npmmirror.com,Direct
+HOST-SUFFIX,synology.com,Direct
+HOST-SUFFIX,qnap.com,Direct
+HOST-SUFFIX,ugreen.com,Direct
+
+# ========= Speed tests =========
+HOST-KEYWORD,speedtest,Direct
+HOST-SUFFIX,ooklaserver.net,Direct
+
+# ========= Private networks =========
+# Only meaningful for the Quantumult X client, where FINAL is Proxy. The server
+# config already ends in final=direct, so these are a no-op there and the
+# generator skips IP rules entirely.
+IP-CIDR,10.0.0.0/8,Direct,no-resolve
+IP-CIDR,172.16.0.0/12,Direct,no-resolve
+IP-CIDR,192.168.0.0/16,Direct,no-resolve
+IP-CIDR,127.0.0.0/8,Direct,no-resolve
+IP-CIDR,100.64.0.0/10,Direct,no-resolve
+HOST-SUFFIX,local,Direct
+HOST-SUFFIX,lan,Direct
+HOST-SUFFIX,internal,Direct
