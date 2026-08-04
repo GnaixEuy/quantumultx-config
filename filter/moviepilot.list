@@ -71,5 +71,7 @@ HOST,files.pythonhosted.org,Proxy
 # Site browsing and .torrent fetches are kilobyte-scale, so proxying a site
 # domain is cheap. The actual BitTorrent transfer is peer traffic handled by
 # qBittorrent/Transmission and never passes through this HTTP proxy.
-# Add only the sites you actually use, one suffix per line, e.g.:
-# HOST-SUFFIX,example-tracker.org,Proxy
+# Add only the sites you actually use, one suffix per line.
+# Note that a site may bind its session to the login IP, so switching a site to
+# the proxy can require logging in again and refreshing its cookie.
+HOST-SUFFIX,hdbao.cc,Proxy
