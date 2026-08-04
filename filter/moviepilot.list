@@ -71,7 +71,17 @@ HOST,files.pythonhosted.org,Proxy
 # Site browsing and .torrent fetches are kilobyte-scale, so proxying a site
 # domain is cheap. The actual BitTorrent transfer is peer traffic handled by
 # qBittorrent/Transmission and never passes through this HTTP proxy.
-# Add only the sites you actually use, one suffix per line.
-# Note that a site may bind its session to the login IP, so switching a site to
-# the proxy can require logging in again and refreshing its cookie.
-HOST-SUFFIX,hdbao.cc,Proxy
+# Add only the sites you actually use, one suffix per line, e.g.:
+# HOST-SUFFIX,example-tracker.org,Proxy
+#
+# Before adding a site, check how its WAF treats the upstream exit. Measured on
+# hdbao.cc: the US node gets `cf-mitigated: challenge` and a 403 JS interstitial
+# that a scraper cannot solve, while the server's own domestic exit is waved
+# straight through to /login.php. Cloudflare also binds cf_clearance to the IP
+# that solved the challenge, so moving a site onto a rotating upstream node
+# invalidates its cookie on every node change.
+#
+# So hdbao.cc is deliberately absent here. Enabling MoviePilot's per-site proxy
+# still routes it through this proxy; final=direct then sends it out via the
+# server's domestic IP, which is the path that actually works. Site pages and
+# .torrent fetches are kilobyte-scale, so that extra hop costs nothing.
