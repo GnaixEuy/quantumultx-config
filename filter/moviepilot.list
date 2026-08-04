@@ -1,0 +1,33 @@
+# MoviePilot metadata and control-plane acceleration
+# Updated: 2026-08-04
+#
+# Intentionally excluded: PT/tracker sites, torrent peers, download clients,
+# cloud drives, media streams, and broad CDN domains.
+
+# MoviePilot services
+HOST-SUFFIX,movie-pilot.org,Proxy
+
+# TMDB metadata and artwork
+HOST,api.themoviedb.org,Proxy
+HOST,api.tmdb.org,Proxy
+HOST,image.tmdb.org,Proxy
+HOST,images.tmdb.org,Proxy
+
+# Fanart and TVDB metadata/artwork
+HOST,webservice.fanart.tv,Proxy
+HOST,assets.fanart.tv,Proxy
+HOST-SUFFIX,thetvdb.com,Proxy
+
+# AniList / Bangumi metadata
+HOST,graphql.anilist.co,Proxy
+HOST-SUFFIX,trace.moe,Proxy
+HOST,api.bgm.tv,Proxy
+HOST,lain.bgm.tv,Proxy
+
+# MoviePilot code, plugins, and resource manifests
+HOST-SUFFIX,github.com,Proxy
+HOST,raw.githubusercontent.com,Proxy
+HOST,codeload.github.com,Proxy
+
+# Optional MoviePilot Telegram notifications
+HOST,api.telegram.org,Proxy
