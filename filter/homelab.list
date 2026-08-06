@@ -1,0 +1,59 @@
+# 家庭服务器分流 / Home lab routing
+# Updated: 2026-08-06
+#
+# Why this list exists:
+#   The company network runs DPI that RST-injects on the SSH identification
+#   banner. The TCP handshake to the NAS completes, then:
+#     kex_exchange_identification: read: Connection reset by peer
+#   Changing the listening port does not help — the block keys on the protocol
+#   fingerprint, not the port. Wrapping the session in the proxy's TLS hides
+#   that fingerprint, so SSH / RDP / DSM all come back.
+#
+# MUST be registered as the FIRST line of [filter_remote]:
+#   The home line is China Telecom AS4134. ASN.China.list (tag=国内网站) carries
+#   5077 IP-ASN rules with zero no-resolve, and IP-ASN,4134 is its first entry.
+#   Without no-resolve, Quantumult X resolves these host names, matches AS4134,
+#   and applies that list's force-policy=direct — sending the traffic straight
+#   back out over the company link and into the DPI. Any filter registered after
+#   国内网站, and anything in [filter_local], never gets a turn.
+#
+# Target policy: HomeLab
+#   [policy]
+#   ssid = HomeLab-Auto, direct, direct, gnaixeuy:自动选择, Linklogis_Guest:自动选择, Linklogis_Phone:自动选择
+#   static = HomeLab, HomeLab-Auto, direct, 自动选择, img-url=<Server.png>
+#
+#   The ssid group flips to a node on the three company networks and stays
+#   direct everywhere else, so this filter can be left enabled=true — no manual
+#   toggling. The static wrapper keeps a manual override available.
+#   iOS needs Location permission granted to Quantumult X, or the ssid group
+#   silently falls back to its default.
+#
+# Scope discipline:
+#   Only the host names that are actually home. gnaixeuy.cn as a whole is NOT
+#   home — a HOST-SUFFIX on the apex would drag unrelated services on the same
+#   zone (blog, status page, sub endpoint) through the proxy. Add new entries one
+#   exact HOST at a time.
+
+# ========= 家里的具体主机 / Home hosts (exact match only) =========
+HOST,nas.gnaixeuy.cn,HomeLab
+HOST,home.gnaixeuy.cn,HomeLab
+HOST,home_v6.gnaixeuy.cn,HomeLab
+
+# ========= 按 IP 直连时的兜底 / Fallback for connections made by raw IP =========
+# HOST rules match only when the client dials the host name. An RDP or SSH
+# client pointed at a bare address bypasses them entirely, so pin the address
+# here too. The home line is dynamic DDNS, so treat these as disposable:
+#   dig +short nas.gnaixeuy.cn
+# re-check whenever the tunnel stops working, and update the value.
+#
+# Last observed IPv4 (2026-08-06, CHINANET-FJ / AS4134):
+# IP-CIDR,110.90.204.49/32,HomeLab,no-resolve
+#
+# IPv6 equivalent. Pin the /64 rather than a single address — the interface half
+# rotates under SLAAC privacy extensions. Note the profile currently sets
+# no-ipv6 in [dns], so an IPv6-only entry point will not resolve until that is
+# removed and 兼容性增强 is enabled in the app.
+# IP6-CIDR,2408:xxxx:xxxx:xxxx::/64,HomeLab,no-resolve
+#
+# no-resolve is required on both: without it Quantumult X performs a DNS lookup
+# to test the rule, which leaks the query and slows every unmatched connection.
