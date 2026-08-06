@@ -17,9 +17,14 @@
 #   back out over the company link and into the DPI. Any filter registered after
 #   国内网站, and anything in [filter_local], never gets a turn.
 #
-# Target policy: HomeLab
+# Target policy: 公司受限
 #   [policy]
-#   static = HomeLab, 自动选择, direct, img-url=<Server.png>
+#   static = 公司受限, 自动选择, direct, 日本节点, 狮城节点, proxy, img-url=<Server.png>
+#
+#   Deliberately shared with 公司音乐媒体分流.list: both lists exist for the same
+#   reason — the company network blocks the destination — so they flip together.
+#   One group means one switch. Splitting them again is just a matter of giving
+#   each filter its own force-policy.
 #
 #   Defaults to the proxy, so the filter stays enabled=true; switch the group to
 #   direct by hand at home, where the extra hop buys nothing.
@@ -42,9 +47,9 @@
 #   exact HOST at a time.
 
 # ========= 家里的具体主机 / Home hosts (exact match only) =========
-HOST,nas.gnaixeuy.cn,HomeLab
-HOST,home.gnaixeuy.cn,HomeLab
-HOST,home_v6.gnaixeuy.cn,HomeLab
+HOST,nas.gnaixeuy.cn,公司受限
+HOST,home.gnaixeuy.cn,公司受限
+HOST,home_v6.gnaixeuy.cn,公司受限
 
 # ========= 按 IP 直连时的兜底 / Fallback for connections made by raw IP =========
 # HOST rules match only when the client dials the host name. An RDP or SSH
@@ -54,13 +59,13 @@ HOST,home_v6.gnaixeuy.cn,HomeLab
 # re-check whenever the tunnel stops working, and update the value.
 #
 # Last observed IPv4 (2026-08-06, CHINANET-FJ / AS4134):
-# IP-CIDR,110.90.204.49/32,HomeLab,no-resolve
+# IP-CIDR,110.90.204.49/32,公司受限,no-resolve
 #
 # IPv6 equivalent. Pin the /64 rather than a single address — the interface half
 # rotates under SLAAC privacy extensions. Note the profile currently sets
 # no-ipv6 in [dns], so an IPv6-only entry point will not resolve until that is
 # removed and 兼容性增强 is enabled in the app.
-# IP6-CIDR,2408:xxxx:xxxx:xxxx::/64,HomeLab,no-resolve
+# IP6-CIDR,2408:xxxx:xxxx:xxxx::/64,公司受限,no-resolve
 #
 # no-resolve is required on both: without it Quantumult X performs a DNS lookup
 # to test the rule, which leaks the query and slows every unmatched connection.
