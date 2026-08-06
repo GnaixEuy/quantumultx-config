@@ -19,14 +19,21 @@
 #
 # Target policy: HomeLab
 #   [policy]
-#   ssid = HomeLab-Auto, direct, direct, gnaixeuy:自动选择, Linklogis_Guest:自动选择, Linklogis_Phone:自动选择
-#   static = HomeLab, HomeLab-Auto, direct, 自动选择, img-url=<Server.png>
+#   static = HomeLab, 自动选择, direct, img-url=<Server.png>
 #
-#   The ssid group flips to a node on the three company networks and stays
-#   direct everywhere else, so this filter can be left enabled=true — no manual
-#   toggling. The static wrapper keeps a manual override available.
-#   iOS needs Location permission granted to Quantumult X, or the ssid group
-#   silently falls back to its default.
+#   Defaults to the proxy, so the filter stays enabled=true; switch the group to
+#   direct by hand at home, where the extra hop buys nothing.
+#
+#   An `ssid` group was tried first, to flip automatically on the three company
+#   networks (gnaixeuy / Linklogis_Guest / Linklogis_Phone). On macOS its SSID
+#   mappings never matched: whatever sat in the two default slots was applied and
+#   every `SSID:policy` entry was silently ignored — confirmed by swapping the
+#   defaults and watching the group follow the default rather than the mapping.
+#   Not a permissions problem: Quantumult X ships the
+#   com.apple.developer.networking.wifi-info entitlement and declares no
+#   NSLocation* keys, so it never appears under 定位服务 and does not need to.
+#   Policy-group references are accepted in the default slots, so the group name
+#   was not the issue either. Untested on iOS, where `ssid` may well work.
 #
 # Scope discipline:
 #   Only the host names that are actually home. gnaixeuy.cn as a whole is NOT
