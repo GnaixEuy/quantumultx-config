@@ -50,6 +50,7 @@
 HOST,nas.gnaixeuy.cn,公司受限
 HOST,home.gnaixeuy.cn,公司受限
 HOST,home_v6.gnaixeuy.cn,公司受限
+HOST,comfyui.gnaixeuy.cn,公司受限
 
 # ========= 按 IP 直连时的兜底 / Fallback for connections made by raw IP =========
 # HOST rules match only when the client dials the host name. An RDP or SSH
