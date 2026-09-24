@@ -125,6 +125,7 @@ HOST-SUFFIX,codestral.mistral.ai,AI
 # ========= Meta AI =========
 HOST-SUFFIX,meta.ai,AI
 HOST-SUFFIX,llama.meta.com,AI
+HOST-SUFFIX,auth.meta.com,AI
 
 # ========= Coding AI =========
 HOST-SUFFIX,cursor.sh,AI
