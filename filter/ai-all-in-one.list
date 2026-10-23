@@ -1,5 +1,5 @@
 # AI all in one
-# Updated: 2026-07-01
+# Updated: 2026-10-23
 #
 # Notes:
 # - Policy target: AI
@@ -32,9 +32,27 @@ HOST-SUFFIX,intercomcdn.com,AI
 
 # ========= Anthropic / Claude =========
 HOST-SUFFIX,anthropic.com,AI
+HOST-SUFFIX,anthropic.team,AI
+HOST-SUFFIX,ant.dev,AI
+HOST-SUFFIX,antspace.dev,AI
+HOST-SUFFIX,clau.de,AI
 HOST-SUFFIX,claude.ai,AI
+HOST-SUFFIX,claude.app,AI
 HOST-SUFFIX,claude.com,AI
+HOST-SUFFIX,claude.dev,AI
+HOST-SUFFIX,claude.new,AI
+HOST-SUFFIX,claude.site,AI
+HOST-SUFFIX,claudeacademy.com,AI
+HOST-SUFFIX,claudemcpclient.com,AI
+HOST-SUFFIX,claudemcpcontent.com,AI
+HOST-SUFFIX,claudepages.dev,AI
+HOST-SUFFIX,claudestudio.com,AI
 HOST-SUFFIX,claudeusercontent.com,AI
+HOST-SUFFIX,chatbotclaude.com,AI
+HOST-SUFFIX,modelcontextprotocol.io,AI
+HOST,servd-anthropic-website.b-cdn.net,AI
+HOST,cdn.usefathom.com,AI
+HOST,cdn.growthbook.io,AI
 
 # ========= xAI / Grok =========
 HOST-SUFFIX,x.ai,AI
@@ -122,9 +140,17 @@ HOST-SUFFIX,mistral.ai,AI
 HOST-SUFFIX,chat.mistral.ai,AI
 HOST-SUFFIX,codestral.mistral.ai,AI
 
-# ========= Meta AI =========
+# ========= Meta AI / Muse AI =========
 HOST-SUFFIX,meta.ai,AI
+HOST-SUFFIX,muse.ai,AI
+HOST-SUFFIX,museai.com,AI
+HOST-SUFFIX,metaaivm.com,AI
+HOST-SUFFIX,metaaiusercontent.com,AI
+HOST-SUFFIX,ecto1usercontent.com,AI
+HOST-SUFFIX,meta-agents-apps.workers.dev,AI
+HOST-SUFFIX,llama.com,AI
 HOST-SUFFIX,llama.meta.com,AI
+HOST-SUFFIX,ai.meta.com,AI
 HOST-SUFFIX,auth.meta.com,AI
 
 # ========= Coding AI =========
