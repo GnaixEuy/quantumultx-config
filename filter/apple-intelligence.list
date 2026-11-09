@@ -1,0 +1,33 @@
+# Apple Intelligence & Siri
+# Updated: 2026-11-09
+#
+# Notes:
+# - Policy target: Apple AI (static: 美国节点 / direct), switch in the Quantumult X policy panel.
+# - Register this list ahead of ai-all-in-one.list: that list carries
+#   HOST-SUFFIX,cloudflare.com and would otherwise capture the Cloudflare relay hosts below.
+# - Apple Intelligence eligibility is decided by the region the request exits from,
+#   so pick a US node when it reports "not available in your region".
+
+# ========= Siri =========
+HOST-SUFFIX,guzzoni.apple.com,Apple AI
+HOST-SUFFIX,siri.apple.com,Apple AI
+
+# ========= Siri / Spotlight suggestions =========
+HOST-SUFFIX,smoot.apple.com,Apple AI
+
+# ========= Apple Intelligence / Private Cloud Compute relays =========
+HOST-SUFFIX,apple-relay.apple.com,Apple AI
+HOST-SUFFIX,apple-relay.cloudflare.com,Apple AI
+HOST-SUFFIX,apple-relay.fastly-edge.com,Apple AI
+HOST-SUFFIX,apple-relay.akamaized.net,Apple AI
+HOST-SUFFIX,cp4.cloudflare.com,Apple AI
+
+# ========= Region detection =========
+# Location service used for the region check. Also carries Apple Maps
+# location lookups, so Maps positioning follows this policy too.
+HOST,gspe1-ssl.ls.apple.com,Apple AI
+
+# ========= Broad dependency =========
+# iCloud API gateway used during Apple Intelligence setup. It also serves
+# general iCloud requests; comment it out if iCloud sync misbehaves on a US node.
+HOST,gateway.icloud.com,Apple AI

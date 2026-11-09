@@ -7,6 +7,7 @@ Suggested split:
 - `reject.list`: ads, trackers, and blocked domains
 - `direct.list`: services that should always connect directly
 - `proxy.list`: services that should use a proxy policy
+- `apple-intelligence.list`: Apple Intelligence and Siri routed to the `Apple AI` policy (`美国节点` or `direct`). Must be registered ahead of `ai-all-in-one.list`, whose `HOST-SUFFIX,cloudflare.com` would otherwise capture the Apple relay hosts
 - `ai-all-in-one.list`: AI services routed to the `AI` policy
 - `moviepilot.list`: MoviePilot metadata and control-plane services routed to `Proxy`; download traffic stays direct
 - `moviepilot-direct.list`: the never-proxy set that guards upstream quota (downloads, cloud drives, registries, domestic sites). Consumed by the server-side sing-box, which evaluates it before every acceleration list; registered with `enabled=false` in the Quantumult X profile
