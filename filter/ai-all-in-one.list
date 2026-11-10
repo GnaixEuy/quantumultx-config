@@ -1,5 +1,5 @@
 # AI all in one
-# Updated: 2026-10-23
+# Updated: 2026-11-10
 #
 # Notes:
 # - Policy target: AI
@@ -53,6 +53,8 @@ HOST-SUFFIX,modelcontextprotocol.io,AI
 HOST,servd-anthropic-website.b-cdn.net,AI
 HOST,cdn.usefathom.com,AI
 HOST,cdn.growthbook.io,AI
+# Claude Code telemetry (Datadog intake). Without it the CLI reports from a different exit than api.anthropic.com
+HOST,http-intake.logs.us5.datadoghq.com,AI
 
 # ========= xAI / Grok =========
 HOST-SUFFIX,x.ai,AI
@@ -158,6 +160,8 @@ HOST-SUFFIX,cursor.sh,AI
 HOST-SUFFIX,cursor.com,AI
 HOST-SUFFIX,cursor-cdn.com,AI
 HOST-SUFFIX,cursorapi.com,AI
+# Cursor background agent VMs
+HOST-SUFFIX,cursorvm.com,AI
 HOST-SUFFIX,anysphere.co,AI
 HOST-SUFFIX,codeium.com,AI
 HOST-SUFFIX,codeiumdata.com,AI
@@ -190,6 +194,8 @@ HOST-SUFFIX,groq.com,AI
 HOST-SUFFIX,together.ai,AI
 HOST-SUFFIX,fireworks.ai,AI
 HOST-SUFFIX,replicate.com,AI
+# MiniMax international (minimaxi.com is the mainland site and stays direct)
+HOST-SUFFIX,minimax.io,AI
 HOST-SUFFIX,replicate.delivery,AI
 HOST-SUFFIX,deepinfra.com,AI
 HOST-SUFFIX,openrouter.ai,AI
@@ -265,6 +271,8 @@ HOST-SUFFIX,js.stripe.com,AI
 HOST-SUFFIX,sentry.io,AI
 HOST-SUFFIX,segment.io,AI
 HOST-SUFFIX,amplitude.com,AI
+# WorkOS: Cursor sign-in and session refresh
+HOST-SUFFIX,workos.com,AI
 
 # ========= Keyword fallback =========
 HOST-KEYWORD,openai,AI

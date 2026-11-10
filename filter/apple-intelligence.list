@@ -3,6 +3,8 @@
 #
 # Notes:
 # - Policy target: Apple AI (static: 美国节点 / direct), switch in the Quantumult X policy panel.
+# - Keep every host here on ONE exit. A latency-benchmark group hops between nodes and
+#   providers, so one Siri session reaches Apple from several IPs. Use an `available` group.
 # - Register this list ahead of ai-all-in-one.list: that list carries
 #   HOST-SUFFIX,cloudflare.com and would otherwise capture the Cloudflare relay hosts below.
 # - Apple Intelligence eligibility is decided by the region the request exits from,
@@ -18,6 +20,8 @@ HOST-KEYWORD,siri,Apple AI
 
 # ========= Siri / Spotlight suggestions =========
 HOST-SUFFIX,smoot.apple.com,Apple AI
+# Mainland-region suggestions endpoint, otherwise caught by Apple.list and sent direct
+HOST-SUFFIX,smoot.apple.cn,Apple AI
 
 # ========= Apple Intelligence / Private Cloud Compute relays =========
 HOST-SUFFIX,apple-relay.apple.com,Apple AI
@@ -26,9 +30,13 @@ HOST-SUFFIX,apple-relay.fastly-edge.com,Apple AI
 HOST-SUFFIX,apple-relay.akamaized.net,Apple AI
 HOST-SUFFIX,cp4.cloudflare.com,Apple AI
 HOST-SUFFIX,apple-relay.mask.apple-dns.net,Apple AI
+HOST-SUFFIX,apple-carry-relay.cloudflare.com,Apple AI
 
 # ========= iCloud Private Relay (mask) =========
 HOST,mask-api.fe.apple-dns.net,Apple AI
+HOST,mask-api.fe2.apple-dns.net,Apple AI
+HOST,mask-boot.icloud.com,Apple AI
+HOST,mask-canary.icloud.com,Apple AI
 HOST,mask-api.icloud.com,Apple AI
 HOST,mask-t.apple-dns.net,Apple AI
 HOST,mask.apple-dns.net,Apple AI
@@ -39,11 +47,19 @@ HOST-SUFFIX,mask.icloud.com,Apple AI
 # Location service used for the region check. Also carries Apple Maps
 # location lookups, so Maps positioning follows this policy too.
 HOST,gspe1-ssl.ls.apple.com,Apple AI
+HOST,gsp64-ssl.ls.apple.com,Apple AI
+# Wi-Fi positioning, also used for the region check
+HOST,wps.apple.com,Apple AI
 
 # ========= Broad dependency =========
-# iCloud API gateway used during Apple Intelligence setup. It also serves
-# general iCloud requests; comment it out if iCloud sync misbehaves on a US node.
-HOST,gateway.icloud.com,Apple AI
+# iCloud API gateway used during Apple Intelligence setup, plus its subdomains:
+# attester.gateway.icloud.com is the Private Cloud Compute attestation endpoint and
+# went direct while this was an exact HOST rule. It also serves general iCloud
+# requests; comment it out if iCloud sync misbehaves on a US node.
+HOST-SUFFIX,gateway.icloud.com,Apple AI
+# iCloud reachability probe and metrics that Apple Intelligence checks alongside the relays
+HOST,probe.icloud.com,Apple AI
+HOST,metrics.icloud.com,Apple AI
 
 # ========= Optional =========
 # Broader location service (all Apple Maps positioning) and App Store assets.
